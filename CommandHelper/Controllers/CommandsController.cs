@@ -98,6 +98,7 @@ namespace CommandHelper.Controllers
             return NoContent();
         }
 
+        [HttpDelete]
         public ActionResult DeleteAll()
         {
             command.DeleteAll();
