@@ -62,5 +62,12 @@ namespace CommandHelper.Data
             context.commands.Remove(cmd);
             context.SaveChanges();
         }
+
+        public void DeleteAll()
+        {
+            
+            context.commands.RemoveRange(context.commands);
+            context.SaveChanges();
+        }
     }
 }

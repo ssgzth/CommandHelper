@@ -97,5 +97,11 @@ namespace CommandHelper.Controllers
             command.DeleteCommand(commandToDelete);
             return NoContent();
         }
+
+        public ActionResult DeleteAll()
+        {
+            command.DeleteAll();
+            return NoContent();
+        }
     }
 }

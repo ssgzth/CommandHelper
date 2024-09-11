@@ -15,5 +15,7 @@ namespace CommandHelper.Data
         void CommandUpdate (Command cmd);
 
         void DeleteCommand(Command cmd);
+
+        void DeleteAll();
     }
 }
