@@ -1,8 +1,8 @@
 # ASP.NET Core (.NET Framework)
+
 # Build and test ASP.NET Core projects targeting the full .NET Framework.
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
-
 trigger:
 - master
 
@@ -26,3 +26,10 @@ steps:
     projects: '**/*.csproj'
     arguments: '--configuration Release'
 
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Free Trial(9db2ef2c-04d1-46ea-a221-e1761e6069c3)'
+    appType: 'apiApp'
+    WebAppName: 'CommandHelper'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
