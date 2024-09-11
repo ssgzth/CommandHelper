@@ -24,7 +24,9 @@ namespace CommandHelper.Data
 
         public Command GetCommandById(int id)
         {
-            return context.commands.FirstOrDefault(c => c.Id == id);
+            var obj = context.commands.FirstOrDefault(c => c.Id == id);
+            if (obj == null) { return null; }
+            else { return obj; }
         }
 
         public void CreateCommand (Command cmd)

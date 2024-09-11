@@ -1,4 +1,5 @@
 using CommandHelper.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Serialization;
 
@@ -21,6 +22,9 @@ option.UseSqlServer(builder.Configuration.GetConnectionString("CommandHelperDbCo
 //Adding the AutoMapper for DTO
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+//Adding jwt authentication
+/*builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme);*/
+
 //service for the json seriealization camel case property resolver
 builder.Services.AddControllers().AddNewtonsoftJson(s =>
 {
@@ -38,6 +42,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+
 
 app.UseAuthorization();
 
